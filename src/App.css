@@ -1,38 +1,102 @@
-.App {
-  text-align: center;
+*{
+    padding: 0%;
+    margin: 0%;
+    font-family: 'Netflix Sans';
+    color: white;
+}
+body{
+    background-color: #030303;
+    width: 100vh;
+    overflow-x: hidden;
+}
+.img_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.img_container:hover .hoverContainer{
+    display: flex;
+    width: 480px;
+    transition: 400ms ease-in-out;
+}
+.hoverContainer{
+    display: none;
+    position: absolute;
+    transition: 400ms ease-in-out;
+    left: 6px;
+    height: 260px;
+    width: 40px;
+    background-color: rgb(32, 32, 32);
+    z-index: 1;
+}
+.row{
+    margin: 20px 0px;
+    width: 100vw;
+    overflow: scroll;
+    /* transform: rotate(-90deg); */
+}
+.rowRotate{
+    /* transform: rotate(90deg); */
+}
+.rowimg{
+    width: 160px;
+    margin: 10px;
+    transition: 200ms ease-in-out;
+}
+.img_container:hover .rowimg{
+    /* width: 168px;
+    margin: 0px 6px; */
+    transition: 200ms ease-in-out;
+    z-index: 2;
+}
+.rowHeader{
+    font-size: 24px;
+    color: white;
+    margin: 12px 0px 0px 12px;
+}
+.rowContent{
+    display: flex;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title{
+    color: #ffffff;
+    font-size: 24px;
+}
+.hoverContent{
+    margin: 20px 20px 20px 180px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.language{
+    color: #4f4f4f;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.rating{
+    color: #818181;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #00000000;
   }
-  to {
-    transform: rotate(360deg);
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(48, 48, 48);
   }
-}
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  .play{
+    background-color: #c0c0c0;
+  }
