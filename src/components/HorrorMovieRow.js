@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import tmdbAPI from '../config/Axios';
 import RowItem from './RowItem';
 
-const TrendingRow = () => {
+const HorrorMovieRow = () => {
 
     const [apiContent, setApiContent] = useState([])
 
-    const url = '/trending/all/week'
+    const url = `/discover/movie?with_genres=27&sort_by=vote_count.desc`
 
     const fetchContent = async () => {
       const Tr = await tmdbAPI.get(url)
@@ -24,7 +24,7 @@ const TrendingRow = () => {
     <div className="row">
         <div className="rowRotate">
           <div className="rowHeader">
-              Trending Now
+              Horro Movies
           </div>
           <div className="rowContent">
               {apiContent.map((item)=>{
@@ -38,4 +38,4 @@ const TrendingRow = () => {
   )
 }
 
-export default TrendingRow
+export default HorrorMovieRow

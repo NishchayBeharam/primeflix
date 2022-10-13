@@ -1,17 +1,17 @@
 import React from 'react'
 import { useEffect, useState } from "react";
 import tmdbAPI from '../config/Axios';
-import RowImg from './RowItem';
+import RowItem from './RowItem';
 
-const TopRatedRow = () => {
+const ComedyMovieRow = () => {
 
-    const [TopRated, setTopRated] = useState([])
+    const [apiContent, setApiContent] = useState([])
 
-    const url = '/tv/top_rated'
+    const url = `/discover/movie?with_genres=35&sort_by=vote_count.desc`
 
     const fetchContent = async () => {
       const Tr = await tmdbAPI.get(url)
-      setTopRated(Tr.data.results)
+      setApiContent(Tr.data.results)
     }
   
     useEffect(() => {
@@ -24,12 +24,12 @@ const TopRatedRow = () => {
     <div className="row">
         <div className="rowRotate">
           <div className="rowHeader">
-              Top Rated
+              Comedy Movies
           </div>
           <div className="rowContent">
-              {TopRated.map((movie)=>{
+              {apiContent.map((item)=>{
                   return(
-                  <RowImg poster_path={movie.poster_path}/>
+                  <RowItem title={item.original_title || item.original_name} language={item.original_language}  poster_path={item.poster_path} vote={item.vote_average}/>
                   )
               })}
           </div>
@@ -38,4 +38,4 @@ const TopRatedRow = () => {
   )
 }
 
-export default TopRatedRow
+export default ComedyMovieRow
